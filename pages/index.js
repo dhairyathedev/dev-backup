@@ -9,21 +9,16 @@ export default function Home() {
   const [username, setUsername] = useState("")
   const [post, setPost] = useState("")
   const path = nanoid(18)
-  const updateRepo = async () => {
-    const data = "hello boy"
-    const octokit = new Octokit({ auth: token })
-    console.log('"' + data + '" converted to Base64 is "' + btoa(unescape(encodeURIComponent(data)) + '"'));
-  
-  }
   const pushCode = async (data, msg) => {
     const octokit = new Octokit({ auth: token })
-    console.log('"' + data + '" converted to Base64 is "' + btoa(unescape(encodeURIComponent(data)) + '"'));
+    // console.log('"' + data + '" converted to Base64 is "' + btoa(unescape(encodeURIComponent(data)) + '"'));
+    const bs64 = btoa(unescape(encodeURIComponent(data)))
     await octokit.request(`PUT /repos/${repo}/contents/${path}.md`, {
       owner: username,
       repo: 'hello-world',
       path: 'path',
       message: `message ${msg}`,
-      content: btoa(unescape(encodeURIComponent(data))),
+      content: bs64,
   })
   }
   const getData = async () => {
