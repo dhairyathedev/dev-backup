@@ -52,7 +52,7 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
       </Head>
-      <h1 className="text-center">DEV Post Backup</h1>
+      <h1 className="text-center mt-2">DEV Post Backup</h1>
       <form onSubmit={getData} id="form">
         <div className="mb-3">
           <label  className="form-label">GitHub Repository</label>
