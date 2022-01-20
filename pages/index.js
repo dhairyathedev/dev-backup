@@ -30,7 +30,7 @@ export default function Home() {
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      pushCode(data.body_html, data.title)
+      pushCode(data.body_markdown, data.title)
       swal("Success", `Your post has been backed up. If you can't find the backup check your details and PAT`, "success")
       document.querySelector("form").reset();
     }).then((value) => {
