@@ -73,7 +73,7 @@ export default function Home() {
         <div className="mb-3">
           <label  className="form-label">GitHub Repository</label>
           <input type="text" className="form-control" placeholder="e.g hello-world" onChange={e=>setRepo(e.target.value)} value={repo} required/>
-          <div className="form-text">Enter repository where you want to save backup of your post</div>
+          <div className="form-text">Enter existing repository where you want to save backup of your post</div>
         </div>
         <div className="mb-3">
           <label  className="form-label">GitHub username</label>
