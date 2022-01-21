@@ -21,17 +21,33 @@ export default function Home() {
       path: 'path',
       message: `backup: ${msg}`,
       content: bs64,
+  }).then(res => {
+      console.log(res.status)
+      if(res.status === 200 || res.status ===  201) {
+        swal("Success", "Backup created", "success")
+      }else{
+        swal("Error", "Check your GitHub Information", "error")
+      
+      }
+  }).catch(err => {
+    console.log(err)
+    swal("Error", "Invalid GitHub Information", "error")
   })
   }
   const getData = async (e) => {
     e.preventDefault()
     const form = document.getElementById("form")
     await fetch(`https://dev.to/api/articles/${post}`)
-    .then(res => res.json())
+    .then(res => {
+      if(res.status === 200){
+        return res.json()
+      }else{
+        swal("Error", "Post has not been backed up. Invalid information", "error")
+      }
+    })
     .then(data => {
       // console.log(data)
       pushCode(data.body_markdown, data.title)
-      swal("Success", `Your post has been backed up. If you can't find the backup check your details and PAT`, "success")
       document.querySelector("form").reset();
     }).then((value) => {
       if(value){
