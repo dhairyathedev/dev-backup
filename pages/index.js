@@ -61,6 +61,7 @@ export default function Home() {
     <div className="container">
       <Head>
         <title>DEV Post Backup</title>
+        <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
         <meta name="description" content="Backup your DEV.to posts directly to your GitHub repository" />
         <meta name="keywords" content="DEV, DEV.to, DEV.to backup, DEV.to backup to GitHub, DEV.to backup to GitHub repository, DEV.to backup to GitHub repository" />
         <meta name="author" content="@codewithsnowbit" />
