@@ -1,4 +1,4 @@
-import { Button, Input, Spacer } from '@nextui-org/react';
+import { Button, Input, Spacer, Text } from '@nextui-org/react';
 import {useState} from 'react';
 import swal from 'sweetalert';
 import { nanoid } from "nanoid"
@@ -7,9 +7,9 @@ import { Octokit } from "@octokit/core"
 
 export default function InputComponent() {
     const [token, setToken] = useState("")
-  const [repo, setRepo] = useState("")
-  const [username, setUsername] = useState("")
-  const [post, setPost] = useState("")
+  const [repo, setRepo] = useState("post-backup")
+  const [username, setUsername] = useState("octocat")
+  const [post, setPost] = useState("https://dev.to/codewithsnowbit/animate-checkbox-in-react-30l0")
   const path = nanoid(18)
   const pushCode = async (data, msg) => {
     const octokit = new Octokit({ auth: token })
@@ -68,6 +68,8 @@ export default function InputComponent() {
     <Input clearable bordered labelPlaceholder="DEV Post" initialValue="codewithsnowbit/animate-checkbox-in-react-30l0" width='100%' required onChange={e=>setPost(e.target.value)} value={post}/>
     <Spacer y={2.5} />
     <Input clearable bordered labelPlaceholder="Personal Access Token" initialValue="XXXXXX-XXXX-XXX" width='100%' required onChange={e=>setToken(e.target.value)} value={token}/>
+    <Spacer y={0.5} />
+    <Text blockquote>Don&apos;t have PAT? <a href="https://github.com/settings/tokens/new?scopes=repo" target="_blank" rel="noopener noreferrer">Create one</a></Text>
     <Spacer y={1.5} />
     <Button shadow color="success" auto type='submit'>
         Submit
